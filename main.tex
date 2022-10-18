@@ -1,0 +1,246 @@
+%! TeX Program = lualatex
+
+%-------------------------
+% Resume in Latex
+% Based off of: https://github.com/sb2nov/resume
+% and Jake Gutierrez's version of it
+% at https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjncs
+% inspired by https://practicaltypography.com/resumes.html
+% License : MIT
+%------------------------
+\documentclass[letter,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[margin = 0.5in]{geometry}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{wrapfig}
+
+%--------------UNDERLINING---------------
+% taken from https://alexwlchan.net/2017/10/latex-underlines/
+
+\usepackage{contour}
+\usepackage{ulem}
+
+\renewcommand{\ULdepth}{3.8pt}
+\contourlength{0.8pt}
+
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+%----------FONT OPTIONS----------
+\usepackage{fontspec}
+\usepackage{fontawesome5}
+
+% I could have just used the charter package here for the font I wanted...
+% but I'd still need to change compiler to XeLaTeX to include the title font
+\usepackage{charter}
+
+\setmainfont{XCharter}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\iffalse
+% \iftrue
+\addtolength{\oddsidemargin}{0.3in}
+\addtolength{\marginparsep}{0.3in}
+\addtolength{\evensidemargin}{0.3in}
+\addtolength{\textwidth}{-0.5in}
+\addtolength{\topmargin}{0.3in}
+\addtolength{\textheight}{0.3in}
+\fi
+
+\urlstyle{same}
+
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+    {\color{gray}\titlerule} \vspace{-5pt}
+    \vspace{8pt}\scshape\raggedright\normalfont
+}{}{0pt}{}
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubheadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubheadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+% PII
+\newcommand{\anonymize}{0}
+
+\ifodd\anonymize
+    \newcommand{\myemail}{email@gmail.com}
+    \newcommand{\myname}{First Last}
+    \newcommand{\mygh}{github.com/first-mi-last }
+    \newcommand{\mylinkedin}{linkedin.com/in/fimi-last}
+\else
+    \newcommand{\myemail}{jonathanzhang929@gmail.com}
+    \newcommand{\myname}{Jonathan Zhang}
+    \newcommand{\mygh}{github.com/jonathan-d-zhang}
+    \newcommand{\mylinkedin}{linkedin.com/in/jd-zhang}
+\fi
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+{\Huge \myname}
+\\
+\vspace{2pt}
+
+\faEnvelope
+\thinspace \thinspace
+\myemail \thinspace \thinspace $|$
+\faGithub
+\thinspace \thinspace
+\mygh \thinspace \thinspace $|$
+\faLinkedin
+\thinspace \thinspace
+\mylinkedin
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubheadingListStart
+    \resumeSubheading{Temple University}{Aug. 2022 -- Present}{B.S. Computer Science}{Expected May 2026}
+    % \resumeItemListStart
+    %     \resumeItem{Relevant Coursework:}
+    %     \resumeItemListStart
+    %         \resumeItem{Mathematics for Computing I}
+    %     \resumeItemListEnd
+    % \resumeItemListEnd
+  \resumeSubheadingListEnd
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technologies}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+    \textbf{Programming Languages}{: Python, Rust, Java, SQL, GraphQL, HTML, CSS.} \\
+    \textbf{Python Libraries}{: pytest, NumPy, pandas, httpx.} \\
+    \textbf{Rust Libraries}{: rust-cpython, pyo3, Rocket.rs, Juniper.} \\
+    \textbf{Java Libraries}{: swing, awt, JUnit, Log4j.} \\
+    \textbf{Tools}{: git, GitHub Actions, Docker, PostgreSQL, Grafana, Prometheus, nginx, AWS Lightsail, \LaTeX.}  \\
+
+    %  \textbf{Skills}{: TDD}
+    }}
+ \end{itemize}
+
+%-----------CCAs-----------
+\section{Achievements}
+    \resumeSubheadingListStart
+        \resumeProjectHeading
+        {\textbf{Won Lockheed Martin CodeQuest King of Prussia}}{Apr. 2021}
+            \resumeItemListStart
+                \resumeItem{Won first place in the advanced division using Python.}
+                \resumeItem{Competitors work together in groups of three to solve algorithmic programming problems.}
+            \resumeItemListEnd
+
+        \resumeProjectHeading
+        {\textbf{Won Code Lower Merion}}{Apr. 2022}
+        \resumeItemListStart
+            \resumeItem{Won first place in the expert division using Python.}
+            \resumeItem{Code LM is a high school intramural competitive programming event.}
+        \resumeItemListEnd
+
+    \resumeSubheadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubheadingListStart
+        \resumeProjectHeading{\textbf{Blog} $|$
+        \textit{Rust, Docker, Github Actions, Grafana, nginx, HTML and CSS}}{}
+        \resumeItemListStart
+            \resumeItem{Continuously deployed new articles to AWS Lightsail Containers with Github Actions.}
+            \resumeItem{Monitored metrics using Grafana and Prometheus.}
+            \resumeItem{Created a reverse proxy with nginx to host the blog and Grafana on the same domain.}
+            \resumeItem{Hand wrote HTML, CSS, and Handlebars.js templates for the frontend.}
+        \resumeItemListEnd
+
+        \resumeProjectHeading{\textbf{Cryptograms} $|$ \textit{Rust, GraphQL, Docker, PostgreSQL}}{}
+        \resumeItemListStart
+            \resumeItem{Cryptograms is a GraphQL API that provides cryptogram puzzles.}
+            \resumeItem{Predefined desired endpoints with a schema-first approach and TDD.}
+            \resumeItem{Tracked active cryptograms with PostgreSQL.}
+            \resumeItem{Maintained test coverage greater than 85\% in the main branch.}
+        \resumeItemListEnd
+
+        \resumeProjectHeading
+        {\textbf{Conway's Game of Life} $|$
+        \textit{Python, Rust, rust-cpython, arcade}}{}
+        \resumeItemListStart
+            \resumeItem{Generated compiled extensions with Rust to speed up computations by over 30x.}
+            \resumeItem{Cached a lookup table for neighboring cell states in order to improve performance by an additional 14\%.}
+            \resumeItem{Created the user interface with Python.}
+        \resumeItemListEnd
+
+        \resumeProjectHeading
+        {\textbf{Sorting Algorithm Visualizer} $|$ \textit{Java, swing, awt}}{}
+        \resumeItemListStart
+            \resumeItem{Optimized my implementations of quicksort and mergesort to outperform the standard library sort function by greater than 10\% against pathological inputs.}
+            \resumeItem{Achieved $O(n \log n)$ performance across all input distributions, whereas the standard library algorithm degraded to $O(n^2)$ for strictly descending inputs.}
+            \resumeItem{Visualized the algorithms by sorting an array of rectangles of varying heights.}
+        \resumeItemListEnd
+    \resumeSubheadingListEnd
+
+
+%-----------WORK EXPERIENCE-----------
+\section{Work Experience}
+    \resumeSubheadingListStart
+        \resumeSubheading{Chipotle Mexican Grill}{June 2022 -- Present}{Crew Member}{}
+        \resumeItemListStart
+            \resumeItem{Wash and cut food in order to prepare the restaurant for opening.}
+        \resumeItemListEnd
+    \resumeSubheadingListEnd
+\end{document}
