@@ -1,14 +1,6 @@
 %! TeX Program = lualatex
 
-%-------------------------
-% Resume in Latex
-% Based off of: https://github.com/sb2nov/resume
-% and Jake Gutierrez's version of it
-% at https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjncs
-% inspired by https://practicaltypography.com/resumes.html
-% License : MIT
-%------------------------
-\documentclass[letter,11pt]{article}
+\documentclass[letterpaper,11pt]{article}
 
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
@@ -53,16 +45,17 @@
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{5pt}
 
 % Adjust margins
-\iffalse
-% \iftrue
-\addtolength{\oddsidemargin}{0.3in}
-\addtolength{\marginparsep}{0.3in}
-\addtolength{\evensidemargin}{0.3in}
-\addtolength{\textwidth}{-0.5in}
-\addtolength{\topmargin}{0.3in}
-\addtolength{\textheight}{0.3in}
+%\iffalse
+\iftrue
+%\addtolength{\oddsidemargin}{0.3in}
+%\addtolength{\marginparsep}{0.3in}
+%\addtolength{\evensidemargin}{0.3in}
+%\addtolength{\textwidth}{-0.5in}
+%\addtolength{\topmargin}{0.3in}
+%\addtolength{\textheight}{0.3in}
 \fi
 
 \urlstyle{same}
@@ -122,7 +115,7 @@
 \ifodd\anonymize
     \newcommand{\myemail}{email@gmail.com}
     \newcommand{\myname}{First Last}
-    \newcommand{\mygh}{github.com/first-mi-last }
+    \newcommand{\mygh}{github.com/first-mi-last}
     \newcommand{\mylinkedin}{linkedin.com/in/fimi-last}
 \else
     \newcommand{\myemail}{jonathanzhang929@gmail.com}
@@ -131,53 +124,48 @@
     \newcommand{\mylinkedin}{linkedin.com/in/jd-zhang}
 \fi
 
-%-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{document}
 
-%----------HEADING----------
 {\Huge \myname}
 \\
 \vspace{2pt}
 
 \faEnvelope
 \thinspace \thinspace
-\myemail \thinspace \thinspace $|$
+\myemail
+\thinspace \thinspace $|$
 \faGithub
 \thinspace \thinspace
-\mygh \thinspace \thinspace $|$
+\mygh
+\thinspace \thinspace $|$
 \faLinkedin
 \thinspace \thinspace
 \mylinkedin
 
-%-----------EDUCATION-----------
 \section{Education}
   \resumeSubheadingListStart
-    \resumeSubheading{Temple University}{Aug. 2022 -- Present}{B.S. Computer Science}{Expected May 2026}
-    % \resumeItemListStart
+    \resumeSubheading{Temple University}{Aug. 2022 -- Present}{B.S. Computer Science}{Expected Graduation May 2026}
+    \resumeItemListStart
+        \resumeItem{3.91 GPA, Dean's List Fall 2022}
     %     \resumeItem{Relevant Coursework:}
     %     \resumeItemListStart
     %         \resumeItem{Mathematics for Computing I}
     %     \resumeItemListEnd
-    % \resumeItemListEnd
+    \resumeItemListEnd
   \resumeSubheadingListEnd
 
-%-----------PROGRAMMING SKILLS-----------
 \section{Technologies}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-    \textbf{Programming Languages}{: Python, Rust, Java, SQL, GraphQL, HTML, CSS.} \\
+    \textbf{Programming Languages}{: Python, Rust, Java, C, SQL, HTML, CSS.} \\
     \textbf{Python Libraries}{: pytest, NumPy, pandas, httpx.} \\
     \textbf{Rust Libraries}{: rust-cpython, pyo3, Rocket.rs, Juniper.} \\
     \textbf{Java Libraries}{: swing, awt, JUnit, Log4j.} \\
-    \textbf{Tools}{: git, GitHub Actions, Docker, PostgreSQL, Grafana, Prometheus, nginx, AWS Lightsail, \LaTeX.}  \\
-
+    \textbf{Tools}{: git, GitHub Actions, Docker, PostgreSQL, pre-commit, Redis, GraphQL, Grafana, Prometheus, nginx, AWS Lightsail.}
     %  \textbf{Skills}{: TDD}
     }}
  \end{itemize}
 
-%-----------CCAs-----------
 \section{Achievements}
     \resumeSubheadingListStart
         \resumeProjectHeading
@@ -196,11 +184,10 @@
 
     \resumeSubheadingListEnd
 
-%-----------PROJECTS-----------
 \section{Projects}
     \resumeSubheadingListStart
-        \resumeProjectHeading{\textbf{Blog} $|$
-        \textit{Rust, Docker, Github Actions, Grafana, nginx, HTML and CSS}}{}
+        \resumeProjectHeading
+        {\textbf{Blog} $|$ \textit{Rust, Docker, Github Actions, Grafana, nginx, HTML and CSS}}{}
         \resumeItemListStart
             \resumeItem{Continuously deployed new articles to AWS Lightsail Containers with Github Actions.}
             \resumeItem{Monitored metrics using Grafana and Prometheus.}
@@ -208,34 +195,32 @@
             \resumeItem{Hand wrote HTML, CSS, and Handlebars.js templates for the frontend.}
         \resumeItemListEnd
 
-        \resumeProjectHeading{\textbf{Cryptograms} $|$ \textit{Rust, GraphQL, Docker, PostgreSQL}}{}
+        \resumeProjectHeading
+        {\textbf{Cryptograms} $|$ \textit{Rust, GraphQL, Docker, PostgreSQL}}{}
         \resumeItemListStart
-            \resumeItem{Cryptograms is a GraphQL API that provides cryptogram puzzles.}
-            \resumeItem{Predefined desired endpoints with a schema-first approach and TDD.}
+            \resumeItem{Cryptograms is a GraphQL API that provides encrypted puzzles to solve.}
             \resumeItem{Tracked active cryptograms with PostgreSQL.}
-            \resumeItem{Maintained test coverage greater than 85\% in the main branch.}
+            \resumeItem{Maintained test coverage greater than 85\% in the main branch using Github Actions.}
+            \resumeItem{Dockerized using a multistage build to separate development and production environments.}
         \resumeItemListEnd
 
-        \resumeProjectHeading
-        {\textbf{Conway's Game of Life} $|$
+        \resumeProjectHeading{\textbf{Conway's Game of Life} $|$
         \textit{Python, Rust, rust-cpython, arcade}}{}
         \resumeItemListStart
-            \resumeItem{Generated compiled extensions with Rust to speed up computations by over 30x.}
-            \resumeItem{Cached a lookup table for neighboring cell states in order to improve performance by an additional 14\%.}
+            \resumeItem{Achieved greater than 30x speedup by generating compiled extensions with Rust.}
+            \resumeItem{Improved performance by an additional 14\% by caching a lookup table for neighboring cell states.}
             \resumeItem{Created the user interface with Python.}
         \resumeItemListEnd
 
         \resumeProjectHeading
         {\textbf{Sorting Algorithm Visualizer} $|$ \textit{Java, swing, awt}}{}
         \resumeItemListStart
-            \resumeItem{Optimized my implementations of quicksort and mergesort to outperform the standard library sort function by greater than 10\% against pathological inputs.}
-            \resumeItem{Achieved $O(n \log n)$ performance across all input distributions, whereas the standard library algorithm degraded to $O(n^2)$ for strictly descending inputs.}
-            \resumeItem{Visualized the algorithms by sorting an array of rectangles of varying heights.}
+             \resumeItem{Optimized my implementations of quicksort and mergesort to outperform the standard library sort function by greater than 10\% against pathological inputs.}
+             \resumeItem{Achieved $\Theta(n \log n)$ performance across all input distributions, whereas the standard library algorithm degraded to $O(n^2)$ for strictly descending inputs.}
+             \resumeItem{Visualized the algorithms by sorting an array of rectangles of varying heights.}
         \resumeItemListEnd
     \resumeSubheadingListEnd
 
-
-%-----------WORK EXPERIENCE-----------
 \section{Work Experience}
     \resumeSubheadingListStart
         \resumeSubheading{Chipotle Mexican Grill}{June 2022 -- Present}{Crew Member}{}
