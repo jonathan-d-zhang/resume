@@ -13,7 +13,6 @@
 \usepackage[margin = 0.5in]{geometry}
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
-\usepackage{listings}
 \usepackage{tabularx}
 \usepackage{wrapfig}
 
@@ -159,11 +158,42 @@
 \section{Technologies}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-    \textbf{Programming Languages}{: Python, Rust, Java, C, SQL, HTML, CSS.} \\
-    \textbf{Python Libraries}{: pytest, NumPy, pandas, httpx.} \\
-    \textbf{Rust Libraries}{: rust-cpython, pyo3, Rocket.rs, Juniper.} \\
-    \textbf{Java Libraries}{: swing, awt, JUnit, Log4j.} \\
-    \textbf{Tools}{: git, GitHub Actions, Docker, PostgreSQL, pre-commit, Redis, GraphQL, Grafana, Prometheus, nginx, AWS Lightsail.}
+    \textbf{Programming Languages}{:
+        Python,
+        Rust,
+        Java,
+        C,
+        SQL,
+        HTML,
+        CSS.
+    } \\
+    \textbf{Libraries}{:
+        Juniper,
+        pytest,
+        httpx,
+        FastAPI,
+        Rocket.rs,
+        pyo3,
+        JavaFX,
+        Apache HttpClient,
+        JUnit,
+        Log4j,
+        NumPy,
+        pandas.
+    } \\
+    \textbf{Tools}{:
+        git,
+        GitHub Actions,
+        Docker,
+        pre-commit,
+        PostgreSQL,
+        Redis,
+        Maven,
+        Grafana,
+        Prometheus,
+        nginx,
+        AWS Lightsail.
+    }
     %  \textbf{Skills}{: TDD}
     }}
  \end{itemize}
@@ -177,6 +207,7 @@
                 \resumeItem{Competitors work together in groups of three to solve algorithmic programming problems.}
             \resumeItemListEnd
 
+% If I need more space, I'm removing this next vvvv
         \resumeProjectHeading
         {\textbf{Won Code Lower Merion}}{Apr. 2022}
         \resumeItemListStart
@@ -201,10 +232,9 @@
         {\textbf{Cryptograms} $|$ \textit{Rust, GraphQL, Docker, PostgreSQL}}{}
         \resumeItemListStart
             \resumeItem{Cryptograms is a GraphQL API that provides encrypted puzzles to solve.}
+            \resumeItem{Implemented a custom test harness for setup/teardown functionality that was missing in the built-in harness.}
+            \resumeItem{Maintained test coverage greater than 90\% using Github Actions, with both unit and integration tests.}
             \resumeItem{Tracked active cryptograms with PostgreSQL.}
-            \resumeItem{Maintained test coverage greater than 90\% using Github Actions with both unit and integration tests.}
-            \resumeItem{Implemented a custom test harness with setup/teardown functionality that was missing in the built-in harness.}
-            \resumeItem{Dockerized using a multistage build to separate development and production environments.}
         \resumeItemListEnd
 
         \resumeProjectHeading
@@ -216,19 +246,20 @@
         \resumeItemListEnd
 
         \resumeProjectHeading
+        {\textbf{LiveCC (OwlHacks 2023)} $|$ \textit{Java, Python, FastAPI, Redis, JavaFX, Apache HttpClient, Maven, Docker}}{}
+        \resumeItemListStart
+            \resumeItem{LiveCC provides real time closed captioning for use in classrooms and lecture halls.}
+            \resumeItem{Created a JavaFX app that uploads audio using Apache HttpClient to a REST API for transcription.}
+            \resumeItem{Distributed transcripts using a FastAPI server and stored them using Redis streams.}
+            \resumeItem{Deployed the server to Linode using Docker.}
+        \resumeItemListEnd
+
+        \resumeProjectHeading
         {\textbf{Sorting Algorithm Visualizer} $|$ \textit{Java, swing, awt}}{}
         \resumeItemListStart
-        \resumeItem{Optimized my sorting implementations to outperform \lstinline|Arrays.sort| by greater than 10\% against certain inputs.}
-             \resumeItem{Visualized the algorithms by sorting an array of rectangles of varying heights.}
+            \resumeItem{Optimized my sorting implementations to outperform Arrays.sort by greater than 10\% against certain inputs.}
+            \resumeItem{Visualized the algorithms by sorting an array of colored rectangles by height.}
         \resumeItemListEnd
-\iffalse
-        \resumeProjectHeading
-        {\textbf{Project Name (OwlHacks 2023)} $|$ \textit{Java, Python, FastAPI, Redis, javafx, Docker}}{}
-        \resumeItemListStart
-            \resumeItem{e}
-        \resumeItemListEnd
-\fi
-
     \resumeSubheadingListEnd
 
 \section{Work Experience}
