@@ -39,6 +39,8 @@
 \usepackage{charter}
 
 \setmainfont{XCharter}
+\let\emph\relax
+\DeclareTextFontCommand{\emph}{\itshape}
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
@@ -231,7 +233,7 @@
 \section{Projects}
     \resumeSubheadingListStart
         \resumeProjectHeading
-        {\textbf{Blog} $|$ \textit{Rust, Docker, Github Actions, Grafana, nginx, HTML and CSS}}{}
+        {\textbf{Blog} $|$ \emph{Rust, Docker, Github Actions, Grafana, nginx, HTML and CSS}}{}
         \resumeItemListStart
             \resumeItem{Continuously deployed new articles to a VPS using Github Actions.}
             \resumeItem{Monitored metrics and logs using Grafana and Prometheus.}
@@ -240,7 +242,7 @@
         \resumeItemListEnd
 
         \resumeProjectHeading
-        {\textbf{Cryptograms} $|$ \textit{Rust, GraphQL, Docker, PostgreSQL}}{}
+        {\textbf{Cryptograms} $|$ \emph{Rust, GraphQL, Docker, PostgreSQL}}{}
         \resumeItemListStart
             \resumeItem{Cryptograms is a GraphQL API that provides encrypted puzzles to solve.}
             \resumeItem{Implemented a custom test harness for setup/teardown functionality that was missing in the built-in harness.}
@@ -248,18 +250,8 @@
             \resumeItem{Tracked active cryptograms with PostgreSQL.}
         \resumeItemListEnd
 
-        %\resumeProjectHeading
-        %{\textbf{Web Server} $|$ \textit{C, pthread.h}}{}
-        %\resumeItemListStart
-        %    \resumeItem{An HTTP server blah.}
-        %    \resumeItem{Implemented a custom threadpool in order to handle multiple connections in parallel.}
-        %    \resumeItem{blah}
-        %    \resumeItem{blah}
-        %    \resumeItem{blah}
-        %\resumeItemListEnd
-
         \resumeProjectHeading
-        {\textbf{LiveCC (OwlHacks 2023)} $|$ \textit{Java, Python, FastAPI, Redis, JavaFX, Apache HttpClient, Maven, Docker}}{}
+        {\textbf{LiveCC (OwlHacks 2023)} $|$ \emph{Java, Python, FastAPI, Redis, JavaFX, Apache HttpClient, Maven, Docker}}{}
         \resumeItemListStart
             \resumeItem{LiveCC provides real time closed captioning for use in classrooms and lecture halls.}
             \resumeItem{Created a JavaFX app that uploads audio using Apache HttpClient to a REST API for transcription.}
@@ -267,8 +259,18 @@
             \resumeItem{Containerized the server with Docker and deployed it to a VPS.}
         \resumeItemListEnd
 
+        %\resumeProjectHeading
+        %{\textbf{HTTP Server} $|$ \emph{C, pthread.h}}{}
+        %\resumeItemListStart
+        %    \resumeItem{}
+        %    \resumeItem{}
+        %    \resumeItem{}
+        %    \resumeItem{}
+        %    \resumeItem{}
+        %\resumeItemListEnd
+
         \resumeProjectHeading
-        {\textbf{Conway's Game of Life} $|$ \textit{Python, Rust, rust-cpython, arcade}}{}
+        {\textbf{Conway's Game of Life} $|$ \emph{Python, Rust, rust-cpython, arcade}}{}
         \resumeItemListStart
             \resumeItem{Achieved greater than 30x speedup by generating compiled extensions with Rust.}
             \resumeItem{Improved performance by an additional 14\% by caching a lookup table for neighboring cell states.}
@@ -276,7 +278,7 @@
         \resumeItemListEnd
 
         \resumeProjectHeading
-        {\textbf{Sorting Algorithm Visualizer} $|$ \textit{Java, swing, awt}}{}
+        {\textbf{Sorting Algorithm Visualizer} $|$ \emph{Java, swing, awt}}{}
         \resumeItemListStart
             \resumeItem{Optimized my quicksort implementation to outperform Arrays.sort by greater than 10\% against certain inputs.}
             \resumeItem{Visualized quicksort, mergesort, and other sorting algorithms by sorting an array of colored rectangles by height.}
