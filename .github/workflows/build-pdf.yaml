@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      OUTPUT_FILE: jonathan-zhang-${{ github.ref_name }}.pdf
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -16,10 +18,9 @@ jobs:
         with:
           root_file: main.tex
           latexmk_use_lualatex: true
-      - name: Rename PDF to current version
-        run:
-          mv main.pdf ${{ github.ref_name }}.pdf
+      - name: Rename PDF to my name and version
+        run: mv main.pdf $OUTPUT_FILE
       - name: Release PDF
         uses: softprops/action-gh-release@v1
         with:
-          files: ${{ github.ref_name }}.pdf
+          files: ${{ env.OUTPUT_FILE }}
