@@ -16,7 +16,10 @@ jobs:
         with:
           root_file: main.tex
           latexmk_use_lualatex: true
+      - name: Rename PDF to current version
+        run:
+          mv main.pdf ${{ github.ref_name }}.pdf
       - name: Release PDF
         uses: softprops/action-gh-release@v1
         with:
-          files: main.pdf
+          files: ${{ github.ref_name }}.pdf
