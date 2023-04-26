@@ -39,6 +39,8 @@
 \usepackage{charter}
 
 \setmainfont{XCharter}
+\let\emph\relax
+\DeclareTextFontCommand{\emph}{\itshape}
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
@@ -118,11 +120,13 @@
     \newcommand{\myname}{First Last}
     \newcommand{\mygh}{github.com/first-mi-last}
     \newcommand{\mylinkedin}{linkedin.com/in/fimi-last}
+    \newcommand{\myphone}{314-159-2653}
 \else
     \newcommand{\myemail}{jonathanzhang929@gmail.com}
     \newcommand{\myname}{Jonathan Zhang}
     \newcommand{\mygh}{github.com/jonathan-d-zhang}
     \newcommand{\mylinkedin}{linkedin.com/in/jd-zhang}
+    \newcommand{\myphone}{484-986-8012}
 \fi
 
 \begin{document}
@@ -131,17 +135,25 @@
 \\
 \vspace{2pt}
 
-\faEnvelope
-\thinspace \thinspace
-\myemail
-\thinspace \thinspace $|$
-\faGithub
-\thinspace \thinspace
-\mygh
-\thinspace \thinspace $|$
-\faLinkedin
-\thinspace \thinspace
-\mylinkedin
+\small{
+    \faEnvelope
+    \thinspace \thinspace
+    \myemail
+    \thinspace \thinspace $|$
+    \faGithub
+    \thinspace \thinspace
+    \mygh
+    \thinspace \thinspace $|$
+    \faLinkedin
+    \thinspace \thinspace
+    \mylinkedin
+    \thinspace \thinspace $|$
+    \faPhone
+    \thinspace \thinspace
+    \myphone
+}
+
+\vspace{-11pt}
 
 \section{Education}
   \resumeSubheadingListStart
@@ -215,23 +227,22 @@
             \resumeItem{Won first place in the expert division using Python.}
             \resumeItem{Code LM is a high school intramural competitive programming event.}
         \resumeItemListEnd
-
     \resumeSubheadingListEnd
 
 % :clap: DEMONSTRATED :clap: SKILLS :clap:
 \section{Projects}
     \resumeSubheadingListStart
         \resumeProjectHeading
-        {\textbf{Blog} $|$ \textit{Rust, Docker, Github Actions, Grafana, nginx, HTML and CSS}}{}
+        {\textbf{Blog} $|$ \emph{Rust, Docker, Github Actions, Grafana, nginx, HTML and CSS}}{}
         \resumeItemListStart
-            \resumeItem{Continuously deployed new articles to AWS Lightsail Containers with Github Actions.}
-            \resumeItem{Monitored metrics using Grafana and Prometheus.}
+            \resumeItem{Continuously deployed new articles to a VPS using Github Actions.}
+            \resumeItem{Monitored metrics and logs using Grafana and Prometheus.}
             \resumeItem{Created a reverse proxy with nginx to host the blog and Grafana on the same domain.}
             \resumeItem{Hand wrote HTML, CSS, and Handlebars.js templates for the frontend.}
         \resumeItemListEnd
 
         \resumeProjectHeading
-        {\textbf{Cryptograms} $|$ \textit{Rust, GraphQL, Docker, PostgreSQL}}{}
+        {\textbf{Cryptograms} $|$ \emph{Rust, GraphQL, Docker, PostgreSQL}}{}
         \resumeItemListStart
             \resumeItem{Cryptograms is a GraphQL API that provides encrypted puzzles to solve.}
             \resumeItem{Implemented a custom test harness for setup/teardown functionality that was missing in the built-in harness.}
@@ -240,7 +251,26 @@
         \resumeItemListEnd
 
         \resumeProjectHeading
-        {\textbf{Conway's Game of Life} $|$ \textit{Python, Rust, rust-cpython, arcade}}{}
+        {\textbf{LiveCC (OwlHacks 2023)} $|$ \emph{Java, Python, FastAPI, Redis, JavaFX, Apache HttpClient, Maven, Docker}}{}
+        \resumeItemListStart
+            \resumeItem{LiveCC provides real time closed captioning for use in classrooms and lecture halls.}
+            \resumeItem{Created a JavaFX app that uploads audio using Apache HttpClient to a REST API for transcription.}
+            \resumeItem{Distributed transcripts using a FastAPI server and stored them using Redis streams.}
+            \resumeItem{Containerized the server with Docker and deployed it to a VPS.}
+        \resumeItemListEnd
+
+        %\resumeProjectHeading
+        %{\textbf{HTTP Server} $|$ \emph{C, pthread.h}}{}
+        %\resumeItemListStart
+        %    \resumeItem{}
+        %    \resumeItem{}
+        %    \resumeItem{}
+        %    \resumeItem{}
+        %    \resumeItem{}
+        %\resumeItemListEnd
+
+        \resumeProjectHeading
+        {\textbf{Conway's Game of Life} $|$ \emph{Python, Rust, rust-cpython, arcade}}{}
         \resumeItemListStart
             \resumeItem{Achieved greater than 30x speedup by generating compiled extensions with Rust.}
             \resumeItem{Improved performance by an additional 14\% by caching a lookup table for neighboring cell states.}
@@ -248,19 +278,10 @@
         \resumeItemListEnd
 
         \resumeProjectHeading
-        {\textbf{LiveCC (OwlHacks 2023)} $|$ \textit{Java, Python, FastAPI, Redis, JavaFX, Apache HttpClient, Maven, Docker}}{}
-        \resumeItemListStart
-            \resumeItem{LiveCC provides real time closed captioning for use in classrooms and lecture halls.}
-            \resumeItem{Created a JavaFX app that uploads audio using Apache HttpClient to a REST API for transcription.}
-            \resumeItem{Distributed transcripts using a FastAPI server and stored them using Redis streams.}
-            \resumeItem{Deployed the server to Linode using Docker.}
-        \resumeItemListEnd
-
-        \resumeProjectHeading
-        {\textbf{Sorting Algorithm Visualizer} $|$ \textit{Java, swing, awt}}{}
+        {\textbf{Sorting Algorithm Visualizer} $|$ \emph{Java, swing, awt}}{}
         \resumeItemListStart
             \resumeItem{Optimized my quicksort implementation to outperform Arrays.sort by greater than 10\% against certain inputs.}
-            \resumeItem{Visualized the algorithms by sorting an array of colored rectangles by height.}
+            \resumeItem{Visualized quicksort, mergesort, and other sorting algorithms by sorting an array of colored rectangles by height.}
         \resumeItemListEnd
     \resumeSubheadingListEnd
 
@@ -268,7 +289,7 @@
     \resumeSubheadingListStart
         \resumeSubheading{Chipotle Mexican Grill}{June 2022 -- Present}{Crew Member}{}
         \resumeItemListStart
-            \resumeItem{Wash and cut food in order to prepare the restaurant for opening.}
+            \resumeItem{Wash and prepare cold food and serve it to customers.}
         \resumeItemListEnd
     \resumeSubheadingListEnd
 \end{document}
