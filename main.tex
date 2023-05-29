@@ -208,7 +208,7 @@
             \resumeItem{Documented the on-boarding process, creating a single source of information for new hires in the DBA team.}
             % ideally, we get some sort of KPI here. e.g., a survey of users
             % afterwards, or google performance analytics or something.
-            \resumeItem{Migrated two legacy VB.net web apps to Blazor Webassembly.}
+            \resumeItem{Migrated two internal VB.net web apps to Blazor Webassembly.}
             \resumeItem{\dots}
             \resumeItem{\dots}
             \resumeItem{\dots}
@@ -216,82 +216,64 @@
 
         \resumeSubheading{Chipotle Mexican Grill}{June 2022 -- May 2023}{Crew Member}{}
         \resumeItemListStart
-            \resumeItem{Prepared food in order to prepare the restaurant for opening and served food to customers.}
+            \resumeItem{Wash and cut food in order to prepare the restaurant for opening.}
         \resumeItemListEnd
     \resumeSubheadingListEnd
 
 
 % :clap: DEMONSTRATED :clap: SKILLS :clap:
+% Focus on impact
 \section{Projects}
     \resumeSubheadingListStart
-        \resumeProjectHeading
-        {\textbf{Dragonfly} $|$ \emph{Python, SQLAlchemy, FastAPI}}{}
+        \resumeProjectHeading{\textbf{Dragonfly} $|$ \emph{Python, SQLAlchemy, FastAPI}}{}
         \resumeItemListStart
             \resumeItem{Dragonfly automatically scans new releases on the Python Package Index for malicious files.}
-            \resumeItem{Designed a distributed client-server model which focused on scalability and fault tolerance.}
-            \resumeItem{Collaborate with a team of 30 other developers, cybersecurity experts, and DevOps engineers.}
-            \resumeItem{Successfully reported over 500 malicious packages so far.}
-            \resumeItem{\dots}
+            \resumeItem{Collaborated with a team of 30 other developers, cybersecurity experts, and DevOps engineers.}
+            % Get availability measurements
+            \resumeItem{Designed a distributed client-server architecture that focused on scalability and fault tolerance.}
+            \resumeItem{Successfully reported over 500 malicious packages and counting.}
         \resumeItemListEnd
 
-        \resumeProjectHeading
-        {\textbf{Blog} $|$ \emph{Rust, Docker, Github Actions, Grafana, nginx, HTML and CSS}}{}
+        \resumeProjectHeading{\textbf{Blog} $|$ \emph{Rust, Docker, Github Actions, Grafana, nginx, HTML and CSS}}{}
         \resumeItemListStart
+            % FIXME Boring "used x" bullets
             \resumeItem{Continuously deployed new articles to a VPS using Github Actions.}
             \resumeItem{Monitored metrics and logs using Grafana and Prometheus.}
             \resumeItem{Created a reverse proxy with nginx to host the blog and Grafana on the same domain.}
-            \resumeItem{Hand wrote HTML, CSS, and Handlebars.js templates for the frontend.}
+            \resumeItem{Used HTML, CSS, and Handlebars.js templates for the frontend.}
         \resumeItemListEnd
 
-        \resumeProjectHeading
-        {\textbf{Cryptograms} $|$ \emph{Rust, GraphQL, Docker, PostgreSQL}}{}
+        \resumeProjectHeading{\textbf{Cryptograms} $|$ \emph{Rust, GraphQL, Docker, PostgreSQL}}{}
         \resumeItemListStart
+            % FIXME Boring "used x" bullets
             \resumeItem{Cryptograms is a GraphQL API that provides encrypted puzzles to solve.}
             \resumeItem{Implemented a custom test harness for setup/teardown functionality that was missing in the built-in harness.}
             \resumeItem{Maintained test coverage greater than 90\% using Github Actions, with both unit and integration tests.}
             \resumeItem{Tracked active cryptograms with PostgreSQL.}
         \resumeItemListEnd
 
-        \resumeProjectHeading
-        {\textbf{LiveCC (OwlHacks 2023)} $|$ \emph{Java, Python, FastAPI, Redis, JavaFX, Apache HttpClient, Maven, Docker}}{}
+        \resumeProjectHeading{\textbf{LiveCC (OwlHacks 2023)} $|$ \emph{Java, Python, FastAPI, JavaFX, Redis, Apache HttpClient, Docker}}{}
         \resumeItemListStart
+            % FIXME Boring "used x" bullets
             \resumeItem{LiveCC provides real time closed captioning for use in classrooms and lecture halls.}
+            \resumeItem{Led a team of 3 others to deliver the finished app with all planned features.}
             \resumeItem{Created a JavaFX app that uploads audio using Apache HttpClient to a REST API for transcription.}
-            \resumeItem{Distributed transcripts using a FastAPI server and stored them using Redis streams.}
-            \resumeItem{Containerized the server with Docker and deployed it to a VPS.}
+            \resumeItem{Persisted transcripts using Redis streams, which allowed for efficient appending and distribution.}
         \resumeItemListEnd
 
-        %\resumeProjectHeading
-        %{\textbf{HTTP Server} $|$ \emph{C, pthread.h}}{}
+        %\resumeProjectHeading{\textbf{HTTP Server} $|$ \emph{C}}{}
         %\resumeItemListStart
-        %    \resumeItem{}
-        %    \resumeItem{}
-        %    \resumeItem{}
-        %    \resumeItem{}
-        %    \resumeItem{}
+        %    \resumeItem{Implements HTTP 1.1 according to RFC \dots}
+        %    \resumeItem{\dots}
+        %    \resumeItem{\dots}
+        %    \resumeItem{\dots}
         %\resumeItemListEnd
 
-        \resumeProjectHeading
-        {\textbf{Conway's Game of Life} $|$ \emph{Python, Rust, rust-cpython, arcade}}{}
+        \resumeProjectHeading{\textbf{Conway's Game of Life} $|$ \emph{Python, Rust, rust-cpython, arcade}}{}
         \resumeItemListStart
-            \resumeItem{Achieved greater than 30x speedup by generating compiled extensions with Rust.}
+            \resumeItem{Achieved a 30x speedup by creating compiled extensions with Rust.}
             \resumeItem{Improved performance by an additional 14\% by caching a lookup table for neighboring cell states.}
             \resumeItem{Created the user interface with Python.}
-        \resumeItemListEnd
-
-        \resumeProjectHeading
-        {\textbf{Sorting Algorithm Visualizer} $|$ \emph{Java, swing, awt}}{}
-        \resumeItemListStart
-            \resumeItem{Optimized my quicksort implementation to outperform Arrays.sort by greater than 10\% against certain inputs.}
-            \resumeItem{Visualized quicksort, mergesort, and other sorting algorithms by sorting an array of colored rectangles by height.}
-        \resumeItemListEnd
-    \resumeSubheadingListEnd
-
-\section{Work Experience}
-    \resumeSubheadingListStart
-        \resumeSubheading{Chipotle Mexican Grill}{June 2022 -- Present}{Crew Member}{}
-        \resumeItemListStart
-            \resumeItem{Wash and prepare cold food and serve it to customers.}
         \resumeItemListEnd
     \resumeSubheadingListEnd
 \end{document}
