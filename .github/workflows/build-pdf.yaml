@@ -10,15 +10,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Cache tex
-        id: cache-tex
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-tex
-        with:
-          path: ~/work/_actions/xu-cheng/latex-action
-          key: tex
-
       - name: Build
         uses: xu-cheng/latex-action@8c9adec310ed05afa3650bd2727d1e71ca1dfd0d
         with:
