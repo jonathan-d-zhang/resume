@@ -182,10 +182,9 @@
     \textbf{Libraries}{:
         FastAPI,
         ASP.NET,
+        Entity Framework,
         pytest,
         Juniper,
-        httpx,
-        JUnit,
         NumPy,
         pandas.
     } \\
@@ -193,9 +192,12 @@
         git,
         GitHub Actions,
         Docker,
-        pre-commit,
+        RabbitMQ,
         gdb,
-        Redis.
+        Grafana,
+        Prometheus,
+        Redis,
+        Sentry.
     }
     %  \textbf{Skills}{: TDD}
     }}
@@ -204,16 +206,14 @@
 
 \section{Work Experience}
     \resumeSubheadingListStart
-        \resumeSubheading{Epicor}{May 2023 -- Present}{Software Developer Intern}{}
+        \resumeSubheading{Epicor}{May 2023 -- Present}{Software Engineer Intern}{}
         \resumeItemListStart
             % ideally, we get some sort of KPI here. e.g., a survey of users
             % afterwards, or google performance analytics or something.
-            \resumeItem{Migrate internal VB.net web apps to Blazor Webassembly.}
-            \resumeItem{Documented the on-boarding process, creating a single source of information for new hires in the DBA team.}
-            \resumeItem{Decreased website load times by over 50\%.}
-%            \resumeItem{\dots}
-%            \resumeItem{\dots}
-%            \resumeItem{\dots}
+            \resumeItem{Migrate internal VB.net web apps to Blazor Webassembly, improving responsiveness and user experience.}
+            \resumeItem{Streamlined the on-boarding process, creating a single source of up-to-date information for new team members.}
+            \resumeItem{Optimized several inefficient endpoints by applying database indexes, caching, and compression to reduce latency by an average of 78\%.}
+            \resumeItem{Collaborated with the DevOps team to create a CI/CD pipeline that eliminated an estimated 24 man-hours per quarter.}
         \resumeItemListEnd
 
         \resumeSubheading{Chipotle Mexican Grill}{June 2022 -- May 2023}{Crew Member}{}
@@ -227,14 +227,15 @@
 % Focus on impact
 \section{Projects}
     \resumeSubheadingListStart
-        \resumeProjectHeading{\textbf{Dragonfly} $|$ \emph{Python, SQLAlchemy, FastAPI, Rust, Auth0, Azure App Service}}{}
+        \resumeProjectHeading{\textbf{Dragonfly (VipyrSec)} $|$ \emph{Python, SQLAlchemy, FastAPI, Rust, Auth0, Sentry}}{}
         \resumeItemListStart
             \resumeItem{Dragonfly automatically scans new releases on the Python Package Index for malicious files.}
-            \resumeItem{Collaborated with a team of 30 other developers, cybersecurity experts, and DevOps engineers.}
+            \resumeItem{Among the fastest and most consistent reporters for malicious packages according to PyPI Director of Infrastructure.}
+            \resumeItem{Work directly with the Python Software Foundation to improve malware reporting infrastructure.}
+            \resumeItem{Collaborate with a team of 15+ developers, cybersecurity experts, and DevOps engineers.}
             % Get availability measurements
-            \resumeItem{Designed a distributed client-server architecture that focused on scalability and fault tolerance.}
-            \resumeItem{Successfully reported over 500 malicious packages and counting.}
-            \resumeItem{Worked directly with the Python Software Foundation to improve malware reporting infrastructure.}
+            \resumeItem{Designed and implemented a distributed client-server architecture focused on scalability and fault tolerance.}
+            \resumeItem{Successfully reported over 575 malicious packages and counting.}
         \resumeItemListEnd
 
         \resumeProjectHeading{\textbf{Blog} $|$ \emph{Rust, Docker, Github Actions, Grafana, nginx, HTML and CSS}}{}
@@ -269,13 +270,6 @@
 %            \resumeItem{Created a custom threadpool in order to handle multiple connections in parallel.}
 %            \resumeItem{\dots}
 %            \resumeItem{\dots}
-%        \resumeItemListEnd
-
-%        \resumeProjectHeading{\textbf{Conway's Game of Life} $|$ \emph{Python, Rust, rust-cpython, arcade}}{}
-%        \resumeItemListStart
-%            \resumeItem{Achieved a 30x speedup by creating compiled extensions with Rust.}
-%            \resumeItem{Improved performance by an additional 14\% by caching a lookup table for neighboring cell states.}
-%            \resumeItem{Created the user interface with Python.}
 %        \resumeItemListEnd
     \resumeSubheadingListEnd
 \end{document}
