@@ -19,7 +19,7 @@ jobs:
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Make Filename
         id: filename
-        run: echo "::set-output name=name::${{ steps.date.outputs.date }}.pdf"
+        run: echo "::set-output name=name::jonathan-zhang-${{ steps.date.outputs.date }}.pdf"
       - name: Rename PDF to my name and date
         run: mv main.pdf ${{ steps.filename.outputs.name }}
       - name: Tag with date
@@ -32,3 +32,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: ${{ steps.filename.outputs.name }}
+          tag_name: ${{ steps.date.outputs.date }}
