@@ -2,14 +2,10 @@ name: Build PDF
 
 on:
   push:
-    tags:
-      - "v*.*.*"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      OUTPUT_FILE: jonathan-zhang-${{ github.ref_name }}.pdf
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -18,9 +14,12 @@ jobs:
         with:
           root_file: main.tex
           latexmk_use_lualatex: true
-      - name: Rename PDF to my name and version
-        run: mv main.pdf $OUTPUT_FILE
+      - name: Get Filename
+        id: filename
+        run: echo "::set-output name=name::jonathan-zhang-$(date +'%Y-%m-%d').pdf"
+      - name: Rename PDF to my name and date
+        run: mv main.pdf ${{ steps.filename.outputs.name }}
       - name: Release PDF
         uses: softprops/action-gh-release@v1
         with:
-          files: ${{ env.OUTPUT_FILE }}
+          files: ${{ steps.filename.outputs.name }}
