@@ -37,19 +37,12 @@ jobs:
             xcharter
             xcolor
 
-      - name: Build PDF
-        run: lualatex -halt-on-error -file-line-error -interaction=nonstopmode 'main.tex'
+      - name: Build PDFs
+        run: make
 
       - name: Get Date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-
-      - name: Make Filename
-        id: filename
-        run: echo "::set-output name=name::jonathan-zhang-${{ steps.date.outputs.date }}.pdf"
-
-      - name: Rename PDF to my name and date
-        run: mv main.pdf ${{ steps.filename.outputs.name }}
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
       - name: Tag this commit
         run: |
@@ -63,9 +56,9 @@ jobs:
       - name: Release
         run: |
           # Replace the pdf if the release exists, otherwise create the release
-          gh release upload ${{ steps.date.outputs.date }} --clobber ${{ steps.filename.outputs.name }}
+          gh release upload ${{ steps.date.outputs.date }} --clobber *.pdf
           if [ "$?" -ne "0" ]; then
-            gh release create ${{ steps.date.outputs.date }} "${{ steps.filename.outputs.name }}" --generate-notes
+            gh release create ${{ steps.date.outputs.date }} --generate-notes *.pdf
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
