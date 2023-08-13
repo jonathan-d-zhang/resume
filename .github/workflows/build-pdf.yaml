@@ -10,11 +10,35 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Build
-        uses: xu-cheng/latex-action@8c9adec310ed05afa3650bd2727d1e71ca1dfd0d
+      - name: Setup Texlive Environment
+        uses: teatimeguest/setup-texlive-action@f047e6a93274944959597f16fd69b30beaf8eef4
         with:
-          root_file: main.tex
-          latexmk_use_lualatex: true
+          packages: >-
+            scheme-minimal
+            latex-bin
+            babel-english
+            contour
+            enumitem
+            etoolbox
+            fancyhdr
+            fontawesome5
+            fontspec
+            geometry
+            hyperref
+            infwarerr
+            kvoptions
+            luatexbase
+            marvosym
+            pdftexcmds
+            preprint
+            titlesec
+            tools
+            ulem
+            xcharter
+            xcolor
+
+      - name: Build PDF
+        run: lualatex -halt-on-error -file-line-error -interaction=nonstopmode 'main.tex'
 
       - name: Get Date
         id: date
@@ -27,15 +51,21 @@ jobs:
       - name: Rename PDF to my name and date
         run: mv main.pdf ${{ steps.filename.outputs.name }}
 
-      - name: Tag with date
-        uses: richardsimko/update-tag@782c008c16efcff2a27f83238dc4b05ffd8f4b52
-        with:
-          tag_name: ${{ steps.date.outputs.date }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Tag this commit
+        run: |
+          git --version
+          git config user.name "GH Actions"
+          git config user.email "<>"
+          git status
+          git tag -fa ${{ steps.date.outputs.date }} -m "${{ steps.date.outputs.date }}"
+          git describe
 
-      - name: Release PDF
-        uses: softprops/action-gh-release@v1
-        with:
-          files: ${{ steps.filename.outputs.name }}
-          tag_name: ${{ steps.date.outputs.date }}
+      - name: Release
+        run: |
+          # Replace the pdf if the release exists, otherwise create the release
+          gh release upload ${{ steps.date.outputs.date }} --clobber ${{ steps.filename.outputs.name }}
+          if [ "$?" -ne "0" ]; then
+            gh release create ${{ steps.date.outputs.date }} "${{ steps.filename.outputs.name }}" --generate-notes
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
