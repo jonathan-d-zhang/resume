@@ -28,7 +28,7 @@ jobs:
         run: mv main.pdf ${{ steps.filename.outputs.name }}
 
       - name: Tag with date
-        uses: richardsimko/update-tag@v1
+        uses: richardsimko/update-tag@782c008c16efcff2a27f83238dc4b05ffd8f4b52
         with:
           tag_name: ${{ steps.date.outputs.date }}
         env:
