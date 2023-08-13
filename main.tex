@@ -112,9 +112,7 @@
 
 
 % PII
-\newcommand{\anonymize}{0}
-
-\ifodd\anonymize
+\ifdefined\isanonymous
     \newcommand{\myemail}{email@gmail.com}
     \newcommand{\myname}{First Last}
     \newcommand{\mygh}{first-mi-last}
