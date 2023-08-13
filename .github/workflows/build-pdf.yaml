@@ -38,7 +38,7 @@ jobs:
             xcolor
 
       - name: Build PDFs
-        run: make
+        run: make BUILD_DIR=.
 
       - name: Get Date
         id: date
