@@ -7,10 +7,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Get timestamp
-        id: timestamp
-        run: echo "timestamp=$(date +'%Y-%m-%dT%H-%MZ' --utc)" >> "$GITHUB_OUTPUT"
-
       - name: Checkout Repo
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
 
@@ -44,20 +40,22 @@ jobs:
       - name: Build PDFs
         run: make
 
+      - name: Rename main.pdf to current date
+        run: mv main.pdf "$(date +'%Y-%m-%d' --utc).pdf"
+
       - name: Upload PDFs as artifacts
         uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce
         with:
           name: "resumes"
-          path: build/*.pdf
-    outputs:
-      timestamp: ${{ steps.timestamp.outputs.timestamp }}
+          path: *.pdf
 
   release:
     needs: build
     runs-on: ubuntu-latest
-    env:
-      timestamp: ${{ needs.build.outputs.timestamp }}
     steps:
+      - name: Get timestamp and date
+        run: echo "timestamp=$(date +'%Y-%m-%dT%H-%MZ' --utc)" >> "$GITHUB_ENV"
+
       - name: Checkout Repo
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
 
