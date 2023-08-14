@@ -1,20 +1,16 @@
 BUILD_DIR := ./build
 BUILD_CMD := lualatex -halt-on-error -file-line-error -interaction=nonstopmode -output-directory=$(BUILD_DIR)
-DATE := $(shell date +'%Y-%m-%d')
 NAME := jonathan-d-zhang
+PDFS := anon.pdf main.pdf
 
+all: $(PDFS)
 
-all: anon master
-
-master:
+$(PDFS): %.pdf: %.tex
 	mkdir -p $(BUILD_DIR)
-	$(BUILD_CMD) -jobname="$(NAME)-$(DATE)" main.tex
-
-anon:
-	mkdir -p $(BUILD_DIR)
-	$(BUILD_CMD) -jobname="anon" anon.tex
+	$(BUILD_CMD) -jobname="$(basename "$?" ".tex")" $?
+	cp $(BUILD_DIR)/$@ ./
 
 .PHONY: clean
 clean:
 	rm -rf build
-
+	rm *.pdf
