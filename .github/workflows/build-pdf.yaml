@@ -1,4 +1,4 @@
-name: Build PDF
+name: Build and release
 
 on:
   push:
@@ -7,8 +7,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - name: Get timestamp
+        id: timestamp
+        run: echo "timestamp=$(date +'%Y-%m-%dT%H-%MZ' --utc)" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout Repo
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
 
       - name: Setup Texlive Environment
         uses: teatimeguest/setup-texlive-action@f047e6a93274944959597f16fd69b30beaf8eef4
@@ -38,11 +42,24 @@ jobs:
             xcolor
 
       - name: Build PDFs
-        run: make BUILD_DIR=.
+        run: make
 
-      - name: Get Date
-        id: date
-        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+      - name: Upload PDFs as artifacts
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce
+        with:
+          name: "resumes"
+          path: build/*.pdf
+    outputs:
+      timestamp: ${{ steps.timestamp.outputs.timestamp }}
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      timestamp: ${{ needs.build.outputs.timestamp }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
 
       - name: Tag this commit
         run: |
@@ -50,11 +67,17 @@ jobs:
           git config user.name "GH Actions"
           git config user.email "<>"
           git status
-          git tag -fa ${{ steps.date.outputs.date }} -m "${{ steps.date.outputs.date }}"
+          git tag -a $timestamp -m $timestamp
+          git push origin $timestamp
           git describe
+
+      - name: Get PDFs
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a
+        with:
+          name: "resumes"
 
       - name: Release
         run: |
-          gh release create --title "$(date -Iseconds)" --generate-notes ${{ steps.date.outputs.date }} *.pdf
+          gh release create --title $timestamp --generate-notes $timestamp *.pdf
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
