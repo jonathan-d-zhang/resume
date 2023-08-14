@@ -55,10 +55,6 @@ jobs:
 
       - name: Release
         run: |
-          # Replace the pdf if the release exists, otherwise create the release
-          gh release upload ${{ steps.date.outputs.date }} --clobber *.pdf
-          if [ "$?" -ne "0" ]; then
-            gh release create ${{ steps.date.outputs.date }} *.pdf
-          fi
+          gh release create --title "$(date -Iseconds)" --generate-notes ${{ steps.date.outputs.date }} *.pdf
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
