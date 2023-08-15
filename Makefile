@@ -5,9 +5,9 @@ PDFS := anon.pdf main.pdf
 .PHONY: all
 all: $(PDFS)
 
-$(PDFS): %.pdf: %.tex
+$(PDFS): %.pdf: main.tex
 	mkdir -p $(BUILD_DIR)
-	$(BUILD_CMD) -jobname="$(basename "$?" ".tex")" $?
+	$(BUILD_CMD) -jobname="$(basename "$@" ".tex")" $?
 	cp $(BUILD_DIR)/$@ ./
 
 .PHONY: clean
