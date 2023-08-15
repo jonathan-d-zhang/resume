@@ -2,6 +2,8 @@ name: Build and release
 
 on:
   push:
+    paths:
+      - '*.tex'
 
 env:
   my_name: jonathan-zhang
