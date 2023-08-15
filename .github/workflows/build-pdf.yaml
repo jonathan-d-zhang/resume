@@ -40,8 +40,8 @@ jobs:
       - name: Build PDFs
         run: make
 
-      - name: Rename main.pdf to current date
-        run: mv main.pdf "$(date +'%Y-%m-%d' --utc).pdf"
+      - name: Rename main.pdf to my name and current date
+        run: mv main.pdf "jonathan-zhang-$(date +'%Y-%m-%d' --utc).pdf"
 
       - name: Upload PDFs as artifacts
         uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce

@@ -1,8 +1,8 @@
 BUILD_DIR := ./build
 BUILD_CMD := lualatex -halt-on-error -file-line-error -interaction=nonstopmode -output-directory=$(BUILD_DIR)
-NAME := jonathan-d-zhang
 PDFS := anon.pdf main.pdf
 
+.PHONY: all
 all: $(PDFS)
 
 $(PDFS): %.pdf: %.tex
