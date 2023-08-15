@@ -24,11 +24,9 @@ jobs:
             fontawesome5
             fontspec
             geometry
-            hyperref
             infwarerr
             kvoptions
             luatexbase
-            marvosym
             pdftexcmds
             preprint
             titlesec
