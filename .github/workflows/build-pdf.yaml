@@ -3,6 +3,9 @@ name: Build and release
 on:
   push:
 
+env:
+  my_name: jonathan-zhang
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -36,16 +39,16 @@ jobs:
             xcolor
 
       - name: Build PDFs
-        run: make
+        run: make MY_PHONE=${{ secrets.MY_PHONE }}
 
       - name: Rename main.pdf to my name and current date
-        run: mv main.pdf "jonathan-zhang-$(date +'%Y-%m-%d' --utc).pdf"
+        run: mv main.pdf "$my_name-$(date +'%Y-%m-%d' --utc).pdf"
 
-      - name: Upload PDFs as artifacts
+      - name: Upload PDFs
         uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce
         with:
           name: "resumes"
-          path: *.pdf
+          path: "*.pdf"
 
   release:
     needs: build
