@@ -18,27 +18,7 @@ jobs:
       - name: Setup Texlive Environment
         uses: teatimeguest/setup-texlive-action@f047e6a93274944959597f16fd69b30beaf8eef4
         with:
-          packages: >-
-            scheme-minimal
-            latex-bin
-            babel-english
-            contour
-            enumitem
-            etoolbox
-            fancyhdr
-            fontawesome5
-            fontspec
-            geometry
-            infwarerr
-            kvoptions
-            luatexbase
-            pdftexcmds
-            preprint
-            titlesec
-            tools
-            ulem
-            xcharter
-            xcolor
+          package-file: DEPENDS.txt
 
       - name: Build PDFs
         run: make
