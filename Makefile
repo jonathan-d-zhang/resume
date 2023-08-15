@@ -7,7 +7,7 @@ all: $(PDFS)
 
 $(PDFS): %.pdf: main.tex
 	mkdir -p $(BUILD_DIR)
-	$(BUILD_CMD) -jobname=$(basename $@ .tex) $(basename $@ .tex)
+	$(BUILD_CMD) $(basename $@ .tex)
 	cp $(BUILD_DIR)/$@ ./
 
 .PHONY: clean
