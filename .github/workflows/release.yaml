@@ -9,7 +9,7 @@ env:
   my_name: jonathan-zhang
 
 jobs:
-  build:
+  build-pdf:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -25,20 +25,49 @@ jobs:
       - name: Build PDFs
         run: make
 
-      - name: Rename main.pdf to my name and current date
-        run: mv main.pdf "$my_name-$(date +'%Y-%m-%d' --utc).pdf"
-
       - name: Upload PDFs
         uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce
         with:
-          name: "resumes"
+          name: "pdfs"
           path: "*.pdf"
 
+  generate-image:
+    needs: build-pdf
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+        with:
+          fetch-depth: "0"
+
+      - name: Download PDFs
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a
+        with:
+          name: "resumes"
+
+      - name: Setup Python
+        uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1  # 4.7.0
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Create pdf
+        run: python -m pdf2png main.pdf main.png
+
+      - name: Upload PNG
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce
+        with:
+          name: "png"
+          path: "main.png"
+
   release:
-    needs: build
+    needs: generate-image
     runs-on: ubuntu-latest
     steps:
       - name: Get timestamp and date
+        # funny timestamp format since git tags do not allow ':'
         run: echo "timestamp=$(date +'%Y-%m-%dT%H-%MZ' --utc)" >> "$GITHUB_ENV"
 
       - name: Checkout Repo
@@ -59,10 +88,18 @@ jobs:
       - name: Download PDFs
         uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a
         with:
-          name: "resumes"
+          name: "pdfs"
+
+      - name: Download PNGs
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a
+        with:
+          name: "pngs"
+
+      - name: Rename main.pdf to my name and current date
+        run: mv main.pdf "$my_name-$(date +'%Y-%m-%d' --utc).pdf"
 
       - name: Release
         run: |
-          gh release create --title $timestamp --generate-notes $timestamp *.pdf
+          gh release create --title $timestamp --generate-notes $timestamp *.pdf main.png
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
