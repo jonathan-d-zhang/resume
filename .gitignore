@@ -1,3 +1,4 @@
+# Luatex output
 *.aux
 *.fdb_latexmk
 *.fls
@@ -5,3 +6,8 @@
 *.out
 *.pdf
 *.synctex.gz
+build/
+
+# Python venv
+venv/
+__pycache__
