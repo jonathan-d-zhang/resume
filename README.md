@@ -1,7 +1,5 @@
-# resume
-My resume.
-
-![my resume](https://github.com/jonathan-d-zhang/resume/releases/latest/main.png).
+# Resume
+![my resume](https://github.com/jonathan-d-zhang/resume/releases/latest/download/main.png)
 
 This repo can be used as a template.
 
