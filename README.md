@@ -1,5 +1,9 @@
 # resume
-My resume. Can use this repo as a template
+My resume.
+
+![my resume](https://github.com/jonathan-d-zhang/resume/releases/latest/main.png).
+
+This repo can be used as a template.
 
 # Building Locally
 ## tlmgr
