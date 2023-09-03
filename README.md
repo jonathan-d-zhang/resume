@@ -1,4 +1,7 @@
 # Resume
+Note, this is a PNG (couldn't figure out how to make github embed a pdf to the
+readme directly), so it may look blurry. See the latest release here: [https://github.com/jonathan-d-zhang/resume/releases/latest/]()
+
 ![my resume](https://github.com/jonathan-d-zhang/resume/releases/latest/download/main.png)
 
 This repo can be used as a template.
