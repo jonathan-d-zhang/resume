@@ -1,7 +1,7 @@
 """
 Creates a PNG from a PDF file.
 
-Usage: `python -m pdf2png source.pdf output.png
+Usage: `python -m pdf2png source.pdf output.png`
 """
 
 import fitz
