@@ -3,7 +3,7 @@ name: Build and release
 on:
   push:
     paths:
-      - '*.tex'
+      - 'src/*.tex'
       - '.github/workflows/release.yaml'
 
 env:
@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce
         with:
           name: "pdfs"
-          path: "*.pdf"
+          path: "build/*.pdf"
 
   generate-image:
     needs: build-pdf
@@ -50,7 +50,7 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
 
-      - name: Create pdf
+      - name: Create PNG
         run: python -m pdf2png main.pdf main.png
 
       - name: Upload PNG
@@ -91,7 +91,7 @@ jobs:
           name: "pngs"
 
       - name: Rename main.pdf to my name and current date
-        run: mv main.pdf "$my_name-$(date +'%Y-%m-%d' --utc).pdf"
+        run: mv build/main.pdf "$my_name-$(date +'%Y-%m-%d' --utc).pdf"
 
       - name: Release
         run: |
