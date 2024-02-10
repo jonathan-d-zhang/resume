@@ -16,10 +16,13 @@ Install with https://tug.org/texlive/quickinstall.html.
 I recommend running `install-tl` with these arguments:
 ```shell
 $ perl ./install-tl --no-interaction --scheme=scheme-minimal \
-    --no-doc-install --no-src-install --paper=letter
+    --no-doc-install --no-src-install --paper=letter \
+    --repository https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2023/tlnet-final
 ```
 which will download a minimal installation without docs and package sources.
-The default paper size is a4, which we override with `--paper=letter`.
+The default paper size is a4, which we override with `--paper=letter`. We also
+pin the repository to the last version of texlive at the end of 2023 to avoid
+transient issues with syncing mirrors.
 
 ## Resume deps
 You can install the packages the resume depends on with

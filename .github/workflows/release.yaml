@@ -37,8 +37,11 @@ jobs:
           tar -xzf install-tl-unx.tar.gz
           rm *.gz
           cd install-tl-*
+          # pin the repository to avoid transient issues with mirrors not being synced
           perl ./install-tl --no-interaction --scheme=scheme-minimal \
-            --no-doc-install --no-src-install --paper=letter --texdir $tex_install_path
+            --no-doc-install --no-src-install --paper=letter \
+            --texdir $tex_install_path \
+            --repository https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2023/tlnet-final
 
       # Install and add to path in separate steps because of caching. If tex is
       # cached, then the path won't be updated unless we do it in a separate
