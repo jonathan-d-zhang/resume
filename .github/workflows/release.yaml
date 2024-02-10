@@ -32,7 +32,7 @@ jobs:
         working-directory: /tmp
         run: |
           set -euo pipefail
-          sudo apt update && && sudo apt upgrade && sudo apt install ca-certificates
+          sudo apt update && sudo apt upgrade && sudo apt install ca-certificates
           wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
           tar -xzf install-tl-unx.tar.gz
           rm *.gz
