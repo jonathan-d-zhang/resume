@@ -52,7 +52,7 @@ jobs:
       - name: Install dependencies
         if: ${{ steps.tex-cache.outputs.cache-hit != 'true' }}
         run: |
-          ls "$tex_install_path/bin/x86_64-linux"
+          ls "/home/runner/.texlive/bin/x86_64-linux"
           tlmgr install $(cat DEPENDS.txt)
 
       - name: Build PDFs
