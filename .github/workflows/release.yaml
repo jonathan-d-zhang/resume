@@ -17,15 +17,16 @@ jobs:
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
 
       - name: Install tlmgr
-        working-directory: /tmp
         run: |
-          sudo apt update && sudo apt install ca-certificates # :unamused:
+          # install here for ease of use. most users should simply use the
+          # default installation, without passing the `texdir` option
+          mkdir tex-install && cd tex-install
           wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
           tar -xzf install-tl-unx.tar.gz
           rm *.gz
           cd install-tl-*
           perl ./install-tl --no-interaction --scheme=scheme-minimal \
-            --no-doc-install --no-src-install --paper=letter
+            --no-doc-install --no-src-install --paper=letter --texdir .
 
       - name: Install dependencies
         run: tlmgr install $(cat DEPENDS.txt)
