@@ -47,13 +47,12 @@ jobs:
         run: |
           # this directory should exist at this point, either restored from
           # cache or installed by the previous step
-          # ls "$tex_install_path/bin/x86_64-linux"
           echo "$tex_install_path/bin/x86_64-linux" >> $GITHUB_PATH
 
       - name: Install dependencies
         if: ${{ steps.tex-cache.outputs.cache-hit != 'true' }}
         run: |
-          command -v tlmgr
+          ls "$tex_install_path/bin/x86_64-linux"
           tlmgr install $(cat DEPENDS.txt)
 
       - name: Build PDFs
