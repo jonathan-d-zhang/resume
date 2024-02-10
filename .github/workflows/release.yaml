@@ -29,7 +29,7 @@ jobs:
             --no-doc-install --no-src-install --paper=letter --texdir .
 
       - name: Install dependencies
-        run: tlmgr install $(cat DEPENDS.txt)
+        run: ./tex-install/install-tl-*/bin/x86_64-linux/tlmgr install $(cat DEPENDS.txt)
 
       - name: Build PDFs
         run: make
