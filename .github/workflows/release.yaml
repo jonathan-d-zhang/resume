@@ -21,7 +21,7 @@ jobs:
         id: cache-tex
         uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
         with:
-          path: $tex_install_path
+          path: "$tex_install_path"
           key: tex-cache-${{ hashFiles('DEPENDS.txt') }}
 
       - name: Install tlmgr
@@ -44,7 +44,7 @@ jobs:
       - name: Add tlmgr bin directory to path
         # this directory should exist at this point, either from the cache or
         # created by the previous step
-        working-directory: $tex_install_path
+        working-directory: "$tex_install_path"
         run: |
           echo "$(pwd)/bin/x86_64-linux" >> $GITHUB_PATH
 
