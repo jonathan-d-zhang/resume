@@ -45,8 +45,6 @@ jobs:
       # step.
       - name: Add tlmgr bin directory to path
         run: |
-          # this directory should exist at this point, either restored from
-          # cache or installed by the previous step
           echo "$tex_install_path/bin/x86_64-linux" >> $GITHUB_PATH
 
       - name: Install dependencies
@@ -56,7 +54,6 @@ jobs:
 
       - name: Build PDFs
         run: |
-          echo $PATH
           make
 
       - name: Upload PDFs
