@@ -27,10 +27,11 @@ jobs:
       - name: Install tlmgr
         if: ${{ steps.tex-cache.outputs.cache-hit != 'true' }}
         run: |
+          set -euo pipefail
           sudo apt update && sudo apt install ca-certificates
           # install here to make caching easier. most users should simply use
           # the default installation, without setting the texdir option.
-          mkdir $tex_install_path && cd $tex_install_path
+          mkdir -p $tex_install_path && cd $tex_install_path
           wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
           tar -xzf install-tl-unx.tar.gz
           rm *.gz
