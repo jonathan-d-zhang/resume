@@ -46,7 +46,7 @@ jobs:
         run: |
           # this directory should exist at this point, either from the cache or
           # created by the previous step
-          cd $tex_install_path
+          cd "$tex_install_path/install-tl-*"
           echo "$(pwd)/bin/x86_64-linux" >> $GITHUB_PATH
 
       - name: Install dependencies
