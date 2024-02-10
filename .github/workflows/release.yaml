@@ -39,17 +39,15 @@ jobs:
           cd install-tl-*
           perl ./install-tl --no-interaction --scheme=scheme-minimal \
             --no-doc-install --no-src-install --paper=letter --texdir $tex_install_path
-          echo "$(pwd)/bin/x86_64-linux"
 
       # Install and add to path in separate steps because of caching. If tex is
       # cached, then the path won't be updated unless we do it in a separate
       # step.
       - name: Add tlmgr bin directory to path
         run: |
-          # this directory should exist at this point, either from the cache or
-          # created by the previous step
-          cd "$tex_install_path/install-tl-*"
-          echo "$(pwd)/bin/x86_64-linux" >> $GITHUB_PATH
+          # this directory should exist at this point, either restored from
+          # cache or installed by the previous step
+          echo "$tex_install_path/bin/x86_64-linux" >> $GITHUB_PATH
 
       - name: Install dependencies
         run: tlmgr install $(cat DEPENDS.txt)
