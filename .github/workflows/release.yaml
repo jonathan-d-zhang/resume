@@ -42,10 +42,10 @@ jobs:
       # cached, then the path won't be updated unless we do it in a separate
       # step.
       - name: Add tlmgr bin directory to path
-        # this directory should exist at this point, either from the cache or
-        # created by the previous step
-        working-directory: "$tex_install_path"
         run: |
+          # this directory should exist at this point, either from the cache or
+          # created by the previous step
+          cd $tex_install_path
           echo "$(pwd)/bin/x86_64-linux" >> $GITHUB_PATH
 
       - name: Install dependencies
