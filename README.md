@@ -15,9 +15,11 @@ This repo can be used as a template.
 Install with https://tug.org/texlive/quickinstall.html.
 I recommend running `install-tl` with these arguments:
 ```shell
-$ perl ./install-tl --no-interaction --scheme=scheme-minimal --no-doc-install --no-src-install
+$ perl ./install-tl --no-interaction --scheme=scheme-minimal \
+    --no-doc-install --no-src-install --paper=letter
 ```
 which will download a minimal installation without docs and package sources.
+The default paper size is a4, which we override with `--paper=letter`.
 
 ## Resume deps
 You can install the packages the resume depends on with
