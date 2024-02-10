@@ -9,7 +9,6 @@ geometry
 infwarerr
 kvoptions
 latex-bin
-luatexbase
 pdftexcmds
 preprint
 scheme-minimal
