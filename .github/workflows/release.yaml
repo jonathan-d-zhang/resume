@@ -18,7 +18,7 @@ jobs:
 
       - name: Install tlmgr
         run: |
-          sudo apt update && sudo apt upgrade && sudo apt install ca-certificates
+          sudo apt update && sudo apt install ca-certificates
           # install here for ease of use. most users should simply use the
           # default installation, without passing the `texdir` option
           mkdir tex-install && cd tex-install
@@ -28,9 +28,10 @@ jobs:
           cd install-tl-*
           perl ./install-tl --no-interaction --scheme=scheme-minimal \
             --no-doc-install --no-src-install --paper=letter --texdir .
+          echo "$(pwd)/bin/x86_64-linux" >> $GITHUB_PATH
 
       - name: Install dependencies
-        run: ./tex-install/install-tl-*/bin/x86_64-linux/tlmgr install $(cat DEPENDS.txt)
+        run: tlmgr install $(cat DEPENDS.txt)
 
       - name: Build PDFs
         run: make
