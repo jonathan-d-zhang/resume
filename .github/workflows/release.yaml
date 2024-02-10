@@ -11,7 +11,7 @@ env:
 
   # install here to make caching easier. most users should simply use
   # the default installation, without setting the texdir option.
-  tex_install_path: '~/.texlive'
+  tex_install_path: '/home/runner/.texlive'
 
 jobs:
   build-pdf:
@@ -53,10 +53,11 @@ jobs:
         if: ${{ steps.tex-cache.outputs.cache-hit != 'true' }}
         run: |
           tlmgr install $(cat DEPENDS.txt)
-          ls "/home/runner/.texlive/bin/x86_64-linux"
 
       - name: Build PDFs
-        run: make
+        run: |
+          echo $PATH
+          make
 
       - name: Upload PDFs
         uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce
