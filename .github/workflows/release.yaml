@@ -18,6 +18,7 @@ jobs:
 
       - name: Install tlmgr
         run: |
+          sudo apt update && sudo apt upgrade && sudo apt install ca-certificates
           # install here for ease of use. most users should simply use the
           # default installation, without passing the `texdir` option
           mkdir tex-install && cd tex-install
