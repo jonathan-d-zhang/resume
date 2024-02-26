@@ -34,6 +34,7 @@
 \usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[margin = 0.5in]{geometry}
+\usepackage{calc}
 \usepackage{fancyhdr}
 \usepackage{tabularx}
 
@@ -99,7 +100,7 @@
   }
 }
 
-\newcommand{\resumeSubheading}[4]{
+\newcommand{\resumeSubheading}[4]{%
   \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
@@ -107,22 +108,26 @@
     \end{tabular*}\vspace{-7pt}
 }
 
-\newcommand{\resumeSubSubheading}[2]{
+\newcommand{\resumeSubSubheading}[2]{%
     \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textit{\small#1} & \textit{\small #2} \\
     \end{tabular*}\vspace{-7pt}
 }
 
-\newcommand{\resumeProjectHeading}[2]{
+\newcommand{\resumeProjectHeading}[2]{%
     \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \small#1 & #2 \\
     \end{tabular*}\vspace{-7pt}
 }
 
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
+\newcommand{\resumeSubItem}[2]{%
+    \item\begin{description}[leftmargin=!, labelwidth=\widthof{\bfseries #1:}]
+        \item[#1:] #2
+    \end{description}%
+    \vspace{-4pt}
+}
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
 \newcommand{\resumeSubheadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
@@ -191,7 +196,7 @@
 
 \section{Technologies}
 \resumeSubheadingListStart
-    \resumeSubItem{\textbf{Programming Languages}{:
+    \resumeSubItem{Programming Languages}{
         Python,
         Rust,
         C\#,
@@ -200,8 +205,8 @@
         SQL,
         HTML,
         CSS.
-    }} \\
-    \resumeSubItem{\textbf{Libraries}{:
+    }
+    \resumeSubItem{Libraries}{
         FastAPI,
         ASP.NET,
         Entity Framework,
@@ -209,8 +214,8 @@
         Juniper,
         NumPy,
         pandas.
-    }} \\
-    \resumeSubItem{\textbf{Tools}{:
+    }
+    \resumeSubItem{Tools}{
         Docker,
         Kubernetes,
         ZeroMQ,
@@ -221,8 +226,7 @@
         gdb,
         git,
         GitHub Actions.
-    }}
-    %  \textbf{Skills}{: TDD}
+    }
 \resumeSubheadingListEnd
 
 \section{Work Experience}
