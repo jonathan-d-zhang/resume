@@ -37,6 +37,7 @@
 \usepackage{calc}
 \usepackage{fancyhdr}
 \usepackage{tabularx}
+\usepackage{src/resume}
 
 %--------------UNDERLINING---------------
 % taken from https://alexwlchan.net/2017/10/latex-underlines/
@@ -97,49 +98,6 @@
 {0pt} % left
 {0pt} % before
 {6pt} % after
-
-%-------------------------
-% Custom commands
-\newcommand{\resumeItem}[1]{
-    \item #1
-}
-
-\newcommand{\resumeSubheading}[4]{%
-  \item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeSubSubheading}[2]{%
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeProjectHeading}[2]{%
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubheadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
-\newcommand{\resumeSubheadingListEnd}{\end{itemize}}
-
-% Wrap itemize for convenient future modifications
-\newenvironment{resumeItemize}
-{
-    \begin{itemize}
-} % begin def
-{
-    \end{itemize}
-} % end def
-
 
 % PII
 \ifdefined\isanonymous
