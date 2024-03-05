@@ -101,9 +101,7 @@
 %-------------------------
 % Custom commands
 \newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
+    \item #1
 }
 
 \newcommand{\resumeSubheading}[4]{%
@@ -187,8 +185,8 @@
   \resumeSubheadingListStart
     \resumeSubheading{Temple University}{Aug. 2022 -- Present}{B.S. Computer Science}{Expected Graduation May 2026}
     \resumeItemListStart
-        \resumeItem{3.93 GPA, Dean's List Fall 2022, Spring 2023, and Fall 2023}
-    %     \resumeItem{Relevant Coursework:}
+        \item 3.93 GPA, Dean's List Fall 2022, Spring 2023, and Fall 2023
+    %     \item Relevant Coursework:
     %     \resumeItemListStart
     %     \resumeItemListEnd
     \resumeItemListEnd
@@ -227,16 +225,16 @@
 \end{description}
 
 \section{Work Experience}
-    \resumeSubheadingListStart
-        \resumeSubheading{Epicor}{May 2023 -- Present}{Software Engineer Intern}{}
-        \resumeItemListStart
-            \resumeItem{Migrate legacy applications to Blazor WebAssembly (WASM), requiring significant research into application specific dependencies and creation of clear documentation.}
-            \resumeItem{Over 90\% of users prefer the new WASM apps compared to the legacy apps.}
-            \resumeItem{Streamlined the on-boarding process, creating a single source of up-to-date information for new team members.}
-            \resumeItem{Optimized several inefficient endpoints by applying database indexes, caching, and compression to reduce P95 latency by 68\%.}
-            \resumeItem{Collaborated with the DevOps team to create a CI/CD pipeline that replaced approximately 24 man-hours per quarter.}
-        \resumeItemListEnd
-    \resumeSubheadingListEnd
+\resumeSubheadingListStart
+    \resumeSubheading{Epicor}{May 2023 -- Present}{Software Engineer Intern}{}
+    \resumeItemListStart
+        \item Migrate legacy applications to Blazor WebAssembly (WASM), requiring significant research into application specific dependencies and creation of clear documentation.
+        \item Over 90\% of users prefer the new WASM apps compared to the legacy apps.
+        \item Streamlined the on-boarding process, creating a single source of up-to-date information for new team members.
+        \item Optimized several inefficient endpoints by applying database indexes, caching, and compression to reduce P95 latency by 68\%.
+        \item Collaborated with the DevOps team to create a CI/CD pipeline that replaced approximately 24 man-hours per quarter.
+    \resumeItemListEnd
+\resumeSubheadingListEnd
 
 
 % 👏 demonstrated 👏 skills 👏
@@ -245,9 +243,9 @@
     \resumeSubheadingListStart
         \resumeProjectHeading{\textbf{Vipyr Security} $|$ \emph{Python, Rust, RabbitMQ, FastAPI, Sentry}}{}
         \resumeItemListStart
-            \resumeItem{VipyrSec automatically scans new releases on the Python Package Index (PyPI) for malicious signatures.}
-            \resumeItem{Designed and implemented a distributed client-server architecture focused on scalability and fault tolerance.}
-            \resumeItem{Used RabbitMQ to communicate between components in a fan-out/fan-in pattern.}
+            \item VipyrSec automatically scans new releases on the Python Package Index (PyPI) for malicious signatures.
+            \item Designed and implemented a distributed client-server architecture focused on scalability and fault tolerance.
+            \item Used RabbitMQ to communicate between components in a fan-out/fan-in pattern.
             \resumeItem{Successfully reported over 650 malicious packages as
             one of the fastest and most consistent reporters according to the
         Python Software Foundation's Director of Infrastructure.}
@@ -257,36 +255,36 @@
         \resumeProjectHeading{\textbf{Mastodata} | \emph{Kubernetes, ZeroMQ, Grafana, Python, Rust}}{}
         \resumeItemListStart
             % FIXME: Boring "used x" bullets
-            \resumeItem{Mastodata aggregates and analyzes data from Mastodon statuses.}
-            \resumeItem{Distributed tasks via ZeroMQ to worker nodes written in Python.}
-            \resumeItem{Used Helm to manage releases to Digital Ocean Managed Kubernetes.}
-            \resumeItem{Publishes data to Questdb for viewing with Grafana.}
+            \item Mastodata aggregates and analyzes data from Mastodon statuses.
+            \item Distributed tasks via ZeroMQ to worker nodes written in Python.
+            \item Used Helm to manage releases to Digital Ocean Managed Kubernetes.
+            \item Publishes data to Questdb for viewing with Grafana.
         \resumeItemListEnd
 
         \resumeProjectHeading{\textbf{LiveCC (OwlHacks 2023)} $|$ \emph{Java, Python, FastAPI, JavaFX, Redis, Apache HttpClient, Docker}}{}
         \resumeItemListStart
-            \resumeItem{LiveCC provides real time closed captioning for use in classrooms and lecture halls.}
-            \resumeItem{Led 3 developers to deliver the finished app on time with all planned features.}
-            \resumeItem{Created a JavaFX app that uploads audio using Apache HttpClient to a REST API for transcription.}
-            \resumeItem{Persisted transcripts using Redis streams, which allowed for efficient appending and distribution.}
+            \item LiveCC provides real time closed captioning for use in classrooms and lecture halls.
+            \item Led 3 developers to deliver the finished app on time with all planned features.
+            \item Created a JavaFX app that uploads audio using Apache HttpClient to a REST API for transcription.
+            \item Persisted transcripts using Redis streams, which allowed for efficient appending and distribution.
         \resumeItemListEnd
 
         \resumeProjectHeading{\textbf{Blog} $|$ \emph{Rust, Docker, Github Actions, Grafana, nginx, HTML and CSS}}{}
         \resumeItemListStart
             % FIXME Boring "used x" bullets
-            \resumeItem{Continuously deployed new articles to a VPS using Github Actions.}
-            \resumeItem{Monitored metrics and logs using Grafana and Prometheus.}
-            \resumeItem{Created a reverse proxy with nginx to host the blog and Grafana on the same domain.}
-            \resumeItem{Used HTML, CSS, and Handlebars.js templates for the frontend.}
+            \item Continuously deployed new articles to a VPS using Github Actions.
+            \item Monitored metrics and logs using Grafana and Prometheus.
+            \item Created a reverse proxy with nginx to host the blog and Grafana on the same domain.
+            \item Used HTML, CSS, and Handlebars.js templates for the frontend.
         \resumeItemListEnd
 
         \resumeProjectHeading{\textbf{Cryptograms} $|$ \emph{Rust, GraphQL, Docker, PostgreSQL}}{}
         \resumeItemListStart
             % FIXME Boring "used x" bullets
-            \resumeItem{Cryptograms is a GraphQL API that generates encrypted puzzles to solve.}
-            \resumeItem{Implemented a custom test harness for setup/teardown functionality that was missing in the built-in harness.}
-            \resumeItem{Maintained test coverage greater than 90\% using Github Actions, with both unit and integration tests.}
-            \resumeItem{Tracked active cryptograms with PostgreSQL.}
+            \item Cryptograms is a GraphQL API that generates encrypted puzzles to solve.
+            \item Implemented a custom test harness for setup/teardown functionality that was missing in the built-in harness.
+            \item Maintained test coverage greater than 90\% using Github Actions, with both unit and integration tests.
+            \item Tracked active cryptograms with PostgreSQL.
         \resumeItemListEnd
     \resumeSubheadingListEnd
 \end{document}
