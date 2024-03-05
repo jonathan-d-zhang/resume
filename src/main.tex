@@ -87,10 +87,16 @@
 \setlength{\tabcolsep}{0in}
 
 % Sections formatting
-\titleformat{\section}{
-    {\color{gray}\titlerule} \vspace{-5pt}
-    \vspace{8pt}\scshape\raggedright\normalfont
-}{}{0pt}{}
+\titleformat{\section}
+{\scshape\raggedright\normalfont} % format
+{} % label
+{0pt} % sep
+{{\color{gray}\titlerule}\\} % before-code
+
+\titlespacing{\section}
+{0pt} % left
+{0pt} % before
+{6pt} % after
 
 %-------------------------
 % Custom commands
@@ -101,7 +107,7 @@
 }
 
 \newcommand{\resumeSubheading}[4]{%
-  \vspace{-2pt}\item
+  \item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
@@ -122,12 +128,6 @@
     \end{tabular*}\vspace{-7pt}
 }
 
-\newcommand{\resumeSubItem}[2]{%
-    \item\begin{description}[leftmargin=!, labelwidth=\widthof{\bfseries #1:}]
-        \item[#1:] #2
-    \end{description}%
-    \vspace{-4pt}
-}
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
 \newcommand{\resumeSubheadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
@@ -181,7 +181,7 @@
     \mylocation
 }
 
-\vspace{-11pt}
+\vspace{-8pt}
 
 \section{Education}
   \resumeSubheadingListStart
@@ -195,8 +195,8 @@
   \resumeSubheadingListEnd
 
 \section{Technologies}
-\resumeSubheadingListStart
-    \resumeSubItem{Programming Languages}{
+\begin{description}[nosep, left=0.15in]
+    \item[Programming Languages:]
         Python,
         Rust,
         C\#,
@@ -205,8 +205,7 @@
         SQL,
         HTML,
         CSS.
-    }
-    \resumeSubItem{Libraries}{
+    \item[Libraries:]
         FastAPI,
         ASP.NET,
         Entity Framework,
@@ -214,8 +213,7 @@
         Juniper,
         NumPy,
         pandas.
-    }
-    \resumeSubItem{Tools}{
+    \item[Tools:]
         Docker,
         Kubernetes,
         ZeroMQ,
@@ -226,8 +224,7 @@
         gdb,
         git,
         GitHub Actions.
-    }
-\resumeSubheadingListEnd
+\end{description}
 
 \section{Work Experience}
     \resumeSubheadingListStart
