@@ -1,34 +1,34 @@
 % Defines various commands for structuring the resume
 
-\newcommand{\resumeSubheading}[4]{%
-  \item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeProjectHeading}[2]{%
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
-}
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newenvironment{resumeSubheadingList}
+\newenvironment{entries}
 {
-    \begin{itemize}[leftmargin=0.15in, label={}]
+    \begin{itemize}[leftmargin=0.15in, label={}, topsep=0pt, partopsep=0pt]
 } % begin def
 {
     \end{itemize}
 } % end def
 
-% Wrap itemize for convenient future modifications
-\newenvironment{resumeItemize}
+\newenvironment{experience}[4]
 {
-    \begin{itemize}
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}
+    \begin{itemize}[nosep]
+} % begin def
+{
+    \end{itemize}
+} % end def
+
+\newenvironment{project}[2]
+{
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \small#1 & #2 \\
+    \end{tabular*}
+    \begin{itemize}[nosep]
 } % begin def
 {
     \end{itemize}
