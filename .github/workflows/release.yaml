@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
 
       - name: Setup Texlive Environment
-        uses: teatimeguest/setup-texlive-action@f047e6a93274944959597f16fd69b30beaf8eef4
+        uses: teatimeguest/setup-texlive-action@e69e0852590264df4a35dbc6cc94009a2466a562 # 3.3.0
         with:
           package-file: DEPENDS.txt
 
