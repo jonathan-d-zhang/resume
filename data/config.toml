@@ -6,8 +6,15 @@ mylinkedin = "fimi-last"
 myphone = "314-159-2653"
 mylocation = "United States"
 
-[role.swe]
-coursework = []
+[role.swe-python]
+myprogramminglanguages = [ "Python", "Rust", 'C\#', "Java", "C", "SQL", "HTML", "CSS" ]
+mylibraries = [ "FastAPI", "ASP.NET", "Entity Framework", "SpringBoot", "pytest", "Juniper", "NumPy", "pandas" ]
+mytools = [ "Docker", "Kubernetes", "ZeroMQ", "Grafana", "Prometheus", "Redis", "Sentry", "gdb", "git", "GitHub Actions" ]
 
-[role.devops]
-coursework = []
+[role.swe-java]
+myprogramminglanguages = [ "Java", "Python", "Rust", 'C\#',  "C", "SQL", "HTML", "CSS" ]
+mylibraries = [ "SpringBoot", "FastAPI", "ASP.NET", "Entity Framework", "pytest", "Juniper", "NumPy", "pandas" ]
+mytools = [ "Docker", "Kubernetes", "ZeroMQ", "Grafana", "Prometheus", "Redis", "Sentry", "gdb", "git", "GitHub Actions" ]
+
+#[role.devops]
+#coursework = []
