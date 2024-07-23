@@ -4,7 +4,8 @@ import subprocess
 import itertools
 import datetime
 
-JOBNAME_TEMPLATE = "jonathan-zhang-{date}-{slug}"
+MY_NAME = "jonathan-zhang"
+JOBNAME_TEMPLATE = "{name}-{date}-{slug}"
 
 PARENT_DIR = Path(__file__).parent
 CONFIG_DIR = PARENT_DIR / "data"
@@ -59,10 +60,11 @@ if __name__ == '__main__':
 
             for k, v in group.items():
                 newcommands.append(build_newcommand(k, v))
+        name = "anon" if "anon" in job_name else MY_NAME
         subprocess.run(
             LUALATEX_ARGS
             + [
-                f"-jobname={JOBNAME_TEMPLATE.format(date=date(), slug='-'.join(job_name))}",
+                f"-jobname={JOBNAME_TEMPLATE.format(name=name, date=date(), slug='-'.join(job_name))}",
                 LATEX_TEMPLATE.format("".join(newcommands)),
             ]
         )
