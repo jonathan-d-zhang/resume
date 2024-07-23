@@ -21,14 +21,19 @@ jobs:
         with:
           package-file: DEPENDS.txt
 
+      - name: Setup Python
+        uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1  # 4.7.0
+        with:
+          python-version: "3.11"
+
       - name: Build PDFs
-        run: make
+        run: python build.py
 
       - name: Upload PDFs
         uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce
         with:
           name: "pdfs"
-          path: "build/*.pdf"
+          path: ".build/*.pdf"
 
   generate-image:
     needs: build-pdf
@@ -51,7 +56,7 @@ jobs:
         run: python -m pip install -r requirements.txt
 
       - name: Create PNG
-        run: python -m pdf2png main.pdf main.png
+        run: python -m pdf2png jonathan-zhang-*-swe.pdf main.png
 
       - name: Upload PNG
         uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce
@@ -89,9 +94,6 @@ jobs:
         uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a
         with:
           name: "pngs"
-
-      - name: Rename main.pdf to my name and current date
-        run: mv main.pdf "$my_name-$(date +'%Y-%m-%d' --utc).pdf"
 
       - name: Release
         run: |
