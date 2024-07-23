@@ -3,6 +3,7 @@ name: Build and release
 on:
   push:
     paths:
+      - 'data/*.toml'
       - 'src/*.tex'
       - '.github/workflows/release.yaml'
 
