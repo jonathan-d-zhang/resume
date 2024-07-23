@@ -56,7 +56,8 @@ jobs:
         run: python -m pip install -r requirements.txt
 
       - name: Create PNG
-        run: python -m pdf2png jonathan-zhang-*-swe.pdf main.png
+        # Adjust this to whichever resume you want to display
+        run: python -m pdf2png jonathan-zhang-*-anon-swe.pdf main.png
 
       - name: Upload PNG
         uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce
