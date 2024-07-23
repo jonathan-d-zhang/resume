@@ -8,6 +8,8 @@
 *.synctex.gz
 build/
 
+data/pii.toml
+
 # Python venv
 venv/
 __pycache__

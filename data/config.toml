@@ -1,0 +1,13 @@
+[personal.anon]
+myname = "First Last"
+myemail = "firstlastnumbers@gmail.com"
+mygh = "first-mi-last"
+mylinkedin = "fimi-last"
+myphone = "314-159-2653"
+mylocation = "United States"
+
+[role.swe]
+coursework = []
+
+[role.devops]
+coursework = []
