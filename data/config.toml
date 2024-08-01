@@ -6,15 +6,70 @@ mylinkedin = "fimi-last"
 myphone = "314-159-2653"
 mylocation = "United States"
 
-[role.swe-python]
-myprogramminglanguages = [ "Python", "Rust", 'C\#', "Java", "C", "SQL", "HTML", "CSS" ]
-mylibraries = [ "FastAPI", "ASP.NET", "Entity Framework", "SpringBoot", "pytest", "Juniper", "NumPy", "pandas" ]
-mytools = [ "Docker", "Kubernetes", "ZeroMQ", "Grafana", "Prometheus", "Redis", "Sentry", "gdb", "git", "GitHub Actions" ]
+[role.backend-python]
+myprogramminglanguages = [ "Python", "Rust", "C\\#", "Java", "C", "SQL" ]
+mylibraries = [
+  "FastAPI",
+  "SQLAlchemy",
+  "pytest",
+  "Juniper",
+  "ASP.NET",
+  "NumPy",
+  "pandas",
+  "Spring Boot",
+]
+mytools = [
+  "Kubernetes",
+  "PostgreSQL",
+  "Grafana",
+  "Prometheus",
+  "Docker",
+  "Redis",
+  "gdb",
+  "git",
+  "GitHub Actions",
+]
 
-[role.swe-java]
-myprogramminglanguages = [ "Java", "Python", "Rust", 'C\#',  "C", "SQL", "HTML", "CSS" ]
-mylibraries = [ "SpringBoot", "FastAPI", "ASP.NET", "Entity Framework", "pytest", "Juniper", "NumPy", "pandas" ]
-mytools = [ "Docker", "Kubernetes", "ZeroMQ", "Grafana", "Prometheus", "Redis", "Sentry", "gdb", "git", "GitHub Actions" ]
+[role.backend-java]
+myprogramminglanguages = [ "Java", "Python", "Rust", "C\\#", "C", "SQL" ]
+mylibraries = [
+  "Spring Boot",
+  "Project Reactor",
+  "FastAPI",
+  "ASP.NET",
+  "Entity Framework",
+  "JUnit 5",
+  "Juniper",
+]
+mytools = [
+  "Kubernetes",
+  "Gradle",
+  "PostgreSQL",
+  "Redis",
+  "Docker",
+  "Sentry",
+  "gdb",
+  "git",
+  "GitHub Actions",
+]
 
-#[role.devops]
-#coursework = []
+[role.backend-csharp]
+myprogramminglanguages = [ "C\\#", "Java", "Python", "Rust", "C", "SQL" ]
+mylibraries = [
+  "ASP.NET",
+  "Entity Framework",
+  "serilog",
+  "Spring Boot",
+  "FastAPI",
+  "JUnit 5",
+]
+mytools = [
+  "Kubernetes",
+  "SQLServer",
+  "Redis",
+  "Sentry",
+  "Docker",
+  "gdb",
+  "git",
+  "GitHub Actions",
+]
