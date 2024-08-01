@@ -148,15 +148,16 @@
 % Focus on impact
 \section{Projects}
 \begin{entries}
-    \item\begin{project}{\textbf{Vipyr Security} $|$ \emph{Python, Rust, RabbitMQ, FastAPI, Sentry}}{}
+    \item\begin{project}{\textbf{Vipyr Security} $|$ \emph{Python, Rust, FastAPI, Kubernetes, PostgreSQL}}{}
         \item VipyrSec automatically scans new releases on the Python
-            Package Index (PyPI) for malicious signatures.
-        \item Designed and implemented a distributed client-server
-            architecture focused on scalability and fault tolerance.
-        \item Scan an average of 5300 lines of code per second and up to
-            10000 per second at peak volume.
-        \item Used RabbitMQ to communicate between components in
-            a fan-out/fan-in pattern.
+            Package Index for malicious signatures.
+        \item Designed and implemented a distributed microservice architecture
+            focused on scalability and fault tolerance.
+        \item Scans an average of 5300 lines of code per second and up to 10000
+            per second at peak volume.
+%        \item Manage a PostgreSQL database
+        \item Manage and monitor weekly production deployments to Digital Ocean
+            Kubernetes using Helm and Grafana dashboards.
         \item Collectively reported over 1000 malicious packages as one of
             the fastest and most consistent reporters according to the
             Python Software Foundation's Director of Infrastructure.
