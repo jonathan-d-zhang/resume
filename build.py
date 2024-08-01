@@ -3,6 +3,7 @@ from pathlib import Path
 import subprocess
 import itertools
 import datetime
+import zoneinfo
 
 MY_NAME = "jonathan-zhang"
 JOBNAME_TEMPLATE = "{name}-{date}-{slug}"
@@ -22,10 +23,12 @@ LUALATEX_ARGS = [
     f"-output-directory={BUILD_DIR.resolve()}",
 ]
 
+
+
 def date() -> str:
     """Produces a date in the format I want, in my time zone"""
 
-    return datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d")
+    return datetime.datetime.now(tz=zoneinfo.ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
 
 def cat_files(p: Path) -> str:
     """Concatenate all files in a directory"""

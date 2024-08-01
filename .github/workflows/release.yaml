@@ -58,7 +58,7 @@ jobs:
 
       - name: Create PNG
         # Adjust this to whichever resume you want to display
-        run: python -m pdf2png jonathan-zhang-*-anon-swe.pdf main.png
+        run: python -m pdf2png anon-*-backend-python.pdf main.png
 
       - name: Upload PNG
         uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce
